@@ -1,0 +1,48 @@
+--Test Delete account 1 on cascade
+
+HTTP/1.1 200 OK
+Date: Mon, 18 Apr 2022 19:58:32 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Content-Length: 31
+Content-Type: application/json
+
+{"message":"Account 1 deleted"}
+
+--Check List of accounts
+
+HTTP/1.1 200 OK
+Date: Mon, 18 Apr 2022 19:58:32 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Content-Length: 177
+Content-Type: application/json
+
+[{"accountId":2,"login":"user2","password":"user2","email":"user2@local.com","status":0},{"accountId":3,"login":"user3","password":"user3","email":"user3@local.com","status":0}]
+
+--Check List of tasklists
+
+HTTP/1.1 200 OK
+Date: Mon, 18 Apr 2022 19:58:32 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Content-Length: 145
+Content-Type: application/json
+
+[{"taskListId":2,"accountId":"2","taskListName":"taskList21","status":1},{"taskListId":3,"accountId":"2","taskListName":"taskList22","status":1}]
+
+--Check List of tasks
+
+HTTP/1.1 200 OK
+Date: Mon, 18 Apr 2022 19:58:32 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Content-Length: 229
+Content-Type: application/json
+
+[{"taskId":2,"accountId":2,"taskListId":2,"taskName":"task221","status":1,"dueDate":"2022-04-22","note":"note221"},{"taskId":3,"accountId":2,"taskListId":2,"taskName":"task222","status":1,"dueDate":"2022-04-22","note":"note222"}]
+

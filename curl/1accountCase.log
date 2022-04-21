@@ -1,0 +1,126 @@
+--Test Create accounts
+
+HTTP/1.1 201 Created
+Date: Mon, 18 Apr 2022 19:52:43 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Content-Length: 15
+Content-Type: application/json
+
+{"accountId":1}
+
+HTTP/1.1 201 Created
+Date: Mon, 18 Apr 2022 19:52:43 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Content-Length: 15
+Content-Type: application/json
+
+{"accountId":2}
+
+HTTP/1.1 201 Created
+Date: Mon, 18 Apr 2022 19:52:43 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Content-Length: 15
+Content-Type: application/json
+
+{"accountId":3}
+
+HTTP/1.1 201 Created
+Date: Mon, 18 Apr 2022 19:52:43 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Content-Length: 15
+Content-Type: application/json
+
+{"accountId":4}
+
+--List accounts
+
+HTTP/1.1 200 OK
+Date: Mon, 18 Apr 2022 19:52:43 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Content-Length: 353
+Content-Type: application/json
+
+[{"accountId":1,"login":"user1","password":"user1","email":"user1@local.com","status":0},{"accountId":2,"login":"user2","password":"user2","email":"user2@local.com","status":0},{"accountId":3,"login":"user3","password":"user3","email":"user3@local.com","status":0},{"accountId":4,"login":"user4","password":"user4","email":"user4@local.com","status":0}]
+
+--Test Read account 2
+
+HTTP/1.1 200 OK
+Date: Mon, 18 Apr 2022 19:52:43 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Content-Length: 87
+Content-Type: application/json
+
+{"accountId":2,"login":"user2","password":"user2","email":"user2@local.com","status":0}
+
+--Read account by login user3
+
+HTTP/1.1 200 OK
+Date: Mon, 18 Apr 2022 19:52:43 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Content-Length: 87
+Content-Type: application/json
+
+{"accountId":3,"login":"user3","password":"user3","email":"user3@local.com","status":0}
+
+--Test Modify account 4
+
+HTTP/1.1 200 OK
+Date: Mon, 18 Apr 2022 19:52:44 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Content-Length: 31
+Content-Type: application/json
+
+{"message":"Account 4 updated"}
+
+--Check List of accounts
+
+HTTP/1.1 200 OK
+Date: Mon, 18 Apr 2022 19:52:44 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Content-Length: 356
+Content-Type: application/json
+
+[{"accountId":1,"login":"user1","password":"user1","email":"user1@local.com","status":0},{"accountId":2,"login":"user2","password":"user2","email":"user2@local.com","status":0},{"accountId":3,"login":"user3","password":"user3","email":"user3@local.com","status":0},{"accountId":4,"login":"user4b","password":"user4b","email":"user4b@local.com","status":0}]
+
+--Test Delete account 4
+
+HTTP/1.1 200 OK
+Date: Mon, 18 Apr 2022 19:52:44 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Content-Length: 31
+Content-Type: application/json
+
+{"message":"Account 4 deleted"}
+
+--Check List of accounts
+
+HTTP/1.1 200 OK
+Date: Mon, 18 Apr 2022 19:52:44 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Content-Length: 265
+Content-Type: application/json
+
+[{"accountId":1,"login":"user1","password":"user1","email":"user1@local.com","status":0},{"accountId":2,"login":"user2","password":"user2","email":"user2@local.com","status":0},{"accountId":3,"login":"user3","password":"user3","email":"user3@local.com","status":0}]
+
