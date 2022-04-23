@@ -1,0 +1,186 @@
+--Test Create tasks
+
+HTTP/1.1 201 Created
+Date: Sat, 23 Apr 2022 20:56:50 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=6fahaun5klhfaesq683satu01i; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 12
+Content-Type: application/json
+
+{"taskId":1}
+
+HTTP/1.1 201 Created
+Date: Sat, 23 Apr 2022 20:56:50 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=g59ove27pggum2qtm06uaj1ief; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 12
+Content-Type: application/json
+
+{"taskId":2}
+
+HTTP/1.1 201 Created
+Date: Sat, 23 Apr 2022 20:56:50 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=307o27cc6p68crgb9hnt6s1f21; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 12
+Content-Type: application/json
+
+{"taskId":3}
+
+HTTP/1.1 201 Created
+Date: Sat, 23 Apr 2022 20:56:50 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=f5o9idik6c1nd680mc3dpgl5f4; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 12
+Content-Type: application/json
+
+{"taskId":4}
+
+--Test List tasks
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:51 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=o5lhucbrv7qsrla3if2qk8dlaf; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 457
+Content-Type: application/json
+
+[{"taskId":1,"accountId":1,"taskListId":1,"taskName":"task111","status":1,"dueDate":"2022-04-22","note":"note111"},{"taskId":2,"accountId":2,"taskListId":2,"taskName":"task221","status":1,"dueDate":"2022-04-22","note":"note221"},{"taskId":3,"accountId":2,"taskListId":2,"taskName":"task222","status":1,"dueDate":"2022-04-22","note":"note222"},{"taskId":4,"accountId":2,"taskListId":3,"taskName":"task231","status":1,"dueDate":"2022-04-22","note":"note231"}]
+
+--Test Read task 3
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:51 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=ocjeljg1boa8nanrn0k6fg6opv; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 113
+Content-Type: application/json
+
+{"taskId":3,"accountId":2,"taskListId":2,"taskName":"task222","status":1,"dueDate":"2022-04-22","note":"note222"}
+
+--Test List tasks by account 2
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:51 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=7d8o2uq8g8apkpa8uoj15p5nc3; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 343
+Content-Type: application/json
+
+[{"taskId":2,"accountId":2,"taskListId":2,"taskName":"task221","status":1,"dueDate":"2022-04-22","note":"note221"},{"taskId":3,"accountId":2,"taskListId":2,"taskName":"task222","status":1,"dueDate":"2022-04-22","note":"note222"},{"taskId":4,"accountId":2,"taskListId":3,"taskName":"task231","status":1,"dueDate":"2022-04-22","note":"note231"}]
+
+--Test List tasks by account 2, tasklist 2
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:51 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=h6advcg0ausks6eevmdcm6cn3j; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 229
+Content-Type: application/json
+
+[{"taskId":2,"accountId":2,"taskListId":2,"taskName":"task221","status":1,"dueDate":"2022-04-22","note":"note221"},{"taskId":3,"accountId":2,"taskListId":2,"taskName":"task222","status":1,"dueDate":"2022-04-22","note":"note222"}]
+
+--Test Modify task 4
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:51 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=9a5p9m4cmrljfurlg825s1m2ac; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 28
+Content-Type: application/json
+
+{"message":"Task 4 updated"}
+
+--Check List of tasks
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:51 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=rk4cn11fmcfi7jvnuhq0vpj9ue; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 458
+Content-Type: application/json
+
+[{"taskId":1,"accountId":1,"taskListId":1,"taskName":"task111","status":1,"dueDate":"2022-04-22","note":"note111"},{"taskId":2,"accountId":2,"taskListId":2,"taskName":"task221","status":1,"dueDate":"2022-04-22","note":"note221"},{"taskId":3,"accountId":2,"taskListId":2,"taskName":"task222","status":1,"dueDate":"2022-04-22","note":"note222"},{"taskId":4,"accountId":2,"taskListId":3,"taskName":"task231b","status":1,"dueDate":"2022-01-01","note":"note231"}]
+
+--Test Delete task 4
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:51 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=a7t3nf69equhmksi3jvb2gksim; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 28
+Content-Type: application/json
+
+{"message":"Task 4 deleted"}
+
+--Check List of tasks
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:51 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=ikm9rftnq12qe6q3d8bsg7bf42; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 343
+Content-Type: application/json
+
+[{"taskId":1,"accountId":1,"taskListId":1,"taskName":"task111","status":1,"dueDate":"2022-04-22","note":"note111"},{"taskId":2,"accountId":2,"taskListId":2,"taskName":"task221","status":1,"dueDate":"2022-04-22","note":"note221"},{"taskId":3,"accountId":2,"taskListId":2,"taskName":"task222","status":1,"dueDate":"2022-04-22","note":"note222"}]
+

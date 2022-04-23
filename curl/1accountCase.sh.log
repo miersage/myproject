@@ -1,0 +1,186 @@
+--Test Create accounts
+
+HTTP/1.1 201 Created
+Date: Sat, 23 Apr 2022 20:55:24 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=st1lo051et29v28mj6i8i58f2s; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 15
+Content-Type: application/json
+
+{"accountId":1}
+
+--Test confirm account 1 : send a mail to confirm registration
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:55:25 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=385t6l6127070fg7028nt28qv2; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 33
+Content-Type: application/json
+
+{"message":"confirm method done"}
+
+HTTP/1.1 201 Created
+Date: Sat, 23 Apr 2022 20:55:25 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=rb9l8q9a7cj4p8jmnamveno9ir; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 15
+Content-Type: application/json
+
+{"accountId":2}
+
+HTTP/1.1 201 Created
+Date: Sat, 23 Apr 2022 20:55:25 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=42up6lvm3apag6sphc1scchnas; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 15
+Content-Type: application/json
+
+{"accountId":3}
+
+HTTP/1.1 201 Created
+Date: Sat, 23 Apr 2022 20:55:26 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=lrt1oop8p8qviq4oghnaojukcf; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 15
+Content-Type: application/json
+
+{"accountId":4}
+
+--List accounts
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:55:26 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=b4vt9cfvj6fpjgqemjnqroiho7; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 804
+Content-Type: application/json
+
+[{"accountId":1,"login":"user1","password":"$2y$10$LJfQ69PqKclHc6F3bJ2JCuS0fyEvpDTwWlNL3JuoAWTqNmsMFnFE6","email":"user1@local.com","status":2,"activeCode":"$2y$10$p7ncwTIPt.OUxpWqtSkLXeagiIAShAMX6bCetMBoqGZ7iO2XkOSoi","activeExpireDate":"2022-04-26 22:55:25"},{"accountId":2,"login":"user2","password":"$2y$10$l0DxgVN6bsSHACAK8R62FOD4HH3tXaX9fcs.WegktndXR0bR19dq2","email":"user2@local.com","status":1,"activeCode":"","activeExpireDate":""},{"accountId":3,"login":"user3","password":"$2y$10$WQowz7r.WNoub2A41xiJQ.HwEgMVtJyNPn9dyDP7mfrIO2yP5hpmC","email":"user3@local.com","status":1,"activeCode":"","activeExpireDate":""},{"accountId":4,"login":"user4","password":"$2y$10$fn2X2Ytu6M32P9JK9IMtDOy5jgAjhFzOx94AgQQRgFHiDvrIIYoZu","email":"user4@local.com","status":1,"activeCode":"","activeExpireDate":""}]
+
+--Test Read account 2
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:55:26 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=dscbb46meab3nqpel4c5hf4s40; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 180
+Content-Type: application/json
+
+{"accountId":2,"login":"user2","password":"$2y$10$l0DxgVN6bsSHACAK8R62FOD4HH3tXaX9fcs.WegktndXR0bR19dq2","email":"user2@local.com","status":1,"activeCode":"","activeExpireDate":""}
+
+--Read account by login user3
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:55:26 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=amnsjjn78jbsjn4qs24oi4uboj; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 180
+Content-Type: application/json
+
+{"accountId":3,"login":"user3","password":"$2y$10$WQowz7r.WNoub2A41xiJQ.HwEgMVtJyNPn9dyDP7mfrIO2yP5hpmC","email":"user3@local.com","status":1,"activeCode":"","activeExpireDate":""}
+
+--Test Modify account 4
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:55:26 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=hvv7s428sfldk0b10367aaj2hb; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 31
+Content-Type: application/json
+
+{"message":"Account 4 updated"}
+
+--Check List of accounts
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:55:26 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=skmc1tg7srramimn6g8g0qm6jj; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 806
+Content-Type: application/json
+
+[{"accountId":1,"login":"user1","password":"$2y$10$LJfQ69PqKclHc6F3bJ2JCuS0fyEvpDTwWlNL3JuoAWTqNmsMFnFE6","email":"user1@local.com","status":2,"activeCode":"$2y$10$p7ncwTIPt.OUxpWqtSkLXeagiIAShAMX6bCetMBoqGZ7iO2XkOSoi","activeExpireDate":"2022-04-26 22:55:25"},{"accountId":2,"login":"user2","password":"$2y$10$l0DxgVN6bsSHACAK8R62FOD4HH3tXaX9fcs.WegktndXR0bR19dq2","email":"user2@local.com","status":1,"activeCode":"","activeExpireDate":""},{"accountId":3,"login":"user3","password":"$2y$10$WQowz7r.WNoub2A41xiJQ.HwEgMVtJyNPn9dyDP7mfrIO2yP5hpmC","email":"user3@local.com","status":1,"activeCode":"","activeExpireDate":""},{"accountId":4,"login":"user4b","password":"$2y$10$XQA9KJOq3dlz67WpPU8lcOQaZexCTi7qxbBy9UwTI6KRPUDpFFbMm","email":"user4b@local.com","status":1,"activeCode":"","activeExpireDate":""}]
+
+--Test Delete account 4
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:55:26 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=rs4300vaeoa9bnog8anagbvl6v; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 31
+Content-Type: application/json
+
+{"message":"Account 4 deleted"}
+
+--Check List of accounts
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:55:26 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=lkrqjin38pp5dot42fgsmedms2; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 623
+Content-Type: application/json
+
+[{"accountId":1,"login":"user1","password":"$2y$10$LJfQ69PqKclHc6F3bJ2JCuS0fyEvpDTwWlNL3JuoAWTqNmsMFnFE6","email":"user1@local.com","status":2,"activeCode":"$2y$10$p7ncwTIPt.OUxpWqtSkLXeagiIAShAMX6bCetMBoqGZ7iO2XkOSoi","activeExpireDate":"2022-04-26 22:55:25"},{"accountId":2,"login":"user2","password":"$2y$10$l0DxgVN6bsSHACAK8R62FOD4HH3tXaX9fcs.WegktndXR0bR19dq2","email":"user2@local.com","status":1,"activeCode":"","activeExpireDate":""},{"accountId":3,"login":"user3","password":"$2y$10$WQowz7r.WNoub2A41xiJQ.HwEgMVtJyNPn9dyDP7mfrIO2yP5hpmC","email":"user3@local.com","status":1,"activeCode":"","activeExpireDate":""}]
+

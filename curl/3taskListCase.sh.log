@@ -1,0 +1,170 @@
+--Test Create tasklists
+
+HTTP/1.1 201 Created
+Date: Sat, 23 Apr 2022 20:56:47 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=03hhntbtknqhjur2f5rt9odm9d; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 16
+Content-Type: application/json
+
+{"taskListId":1}
+
+HTTP/1.1 201 Created
+Date: Sat, 23 Apr 2022 20:56:47 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=35d507eet3aa0q7b2qobbr6ak9; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 16
+Content-Type: application/json
+
+{"taskListId":2}
+
+HTTP/1.1 201 Created
+Date: Sat, 23 Apr 2022 20:56:47 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=1kjf04cvdhnnqaofnmi5k1sphc; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 16
+Content-Type: application/json
+
+{"taskListId":3}
+
+HTTP/1.1 201 Created
+Date: Sat, 23 Apr 2022 20:56:47 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=9dfbgd85v6us4ncq2lp6ir9m20; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 16
+Content-Type: application/json
+
+{"taskListId":4}
+
+--Test List tasklists
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:47 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=00lmrcof8nea5rlpre1uaala74; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 289
+Content-Type: application/json
+
+[{"taskListId":1,"accountId":"1","taskListName":"taskList11","status":1},{"taskListId":2,"accountId":"2","taskListName":"taskList21","status":1},{"taskListId":3,"accountId":"2","taskListName":"taskList22","status":1},{"taskListId":4,"accountId":"3","taskListName":"taskList31","status":1}]
+
+--Test Read tasklist 3
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:47 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=ekag0v9dmsaffvvg31bb1b45v2; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 71
+Content-Type: application/json
+
+{"taskListId":3,"accountId":"2","taskListName":"taskList22","status":1}
+
+--Test List tasklists by account 2
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:47 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=mn57ehhtfuhl2tfjfu37ukhnkp; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 145
+Content-Type: application/json
+
+[{"taskListId":2,"accountId":"2","taskListName":"taskList21","status":1},{"taskListId":3,"accountId":"2","taskListName":"taskList22","status":1}]
+
+--Test Modify tasklist 4
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:47 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=oh7j3jeb1m2dvpjpq8hu3dbsn0; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 32
+Content-Type: application/json
+
+{"message":"TaskList 4 updated"}
+
+--Check List of tasklists
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:47 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=e0hen9hhtpcaivrnbtjkv6mql8; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 290
+Content-Type: application/json
+
+[{"taskListId":1,"accountId":"1","taskListName":"taskList11","status":1},{"taskListId":2,"accountId":"2","taskListName":"taskList21","status":1},{"taskListId":3,"accountId":"2","taskListName":"taskList22","status":1},{"taskListId":4,"accountId":"3","taskListName":"taskList31b","status":1}]
+
+--Test Delete tasklist 4
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:47 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=46qhk8mpht1v0kc1cp9ububv4v; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 32
+Content-Type: application/json
+
+{"message":"TaskList 4 deleted"}
+
+--Check List of tasklists
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:47 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=p8vhm0fafr611hhtlrcrg49ct2; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 217
+Content-Type: application/json
+
+[{"taskListId":1,"accountId":"1","taskListName":"taskList11","status":1},{"taskListId":2,"accountId":"2","taskListName":"taskList21","status":1},{"taskListId":3,"accountId":"2","taskListName":"taskList22","status":1}]
+

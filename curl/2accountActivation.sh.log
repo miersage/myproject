@@ -1,0 +1,32 @@
+--Test activate account 1
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:00 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=snvjjjl0ps6rbd2cfme314qd1b; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 34
+Content-Type: application/json
+
+{"message":"activate method done"}
+
+--Test Read account 1
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:00 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=t585rr4tkme6918en20l1idupb; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 261
+Content-Type: application/json
+
+{"accountId":1,"login":"user1","password":"$2y$10$LJfQ69PqKclHc6F3bJ2JCuS0fyEvpDTwWlNL3JuoAWTqNmsMFnFE6","email":"user1@local.com","status":4,"activeCode":"$2y$10$hn3aO4sM1AOJOkCcGVNGeO0EXDG\/NGN\/NpXTjPMkaQ65JdYmkgL0u","activeExpireDate":"2022-04-23 22:56:00"}
+

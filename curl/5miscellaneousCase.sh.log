@@ -1,0 +1,64 @@
+--Test Delete account 1 on cascade
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:54 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=h2en324rc2ju9rhh169aios716; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 31
+Content-Type: application/json
+
+{"message":"Account 1 deleted"}
+
+--Check List of accounts
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:54 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=90t2lqsf11rpdb0ep705edv8q9; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 363
+Content-Type: application/json
+
+[{"accountId":2,"login":"user2","password":"$2y$10$l0DxgVN6bsSHACAK8R62FOD4HH3tXaX9fcs.WegktndXR0bR19dq2","email":"user2@local.com","status":1,"activeCode":"","activeExpireDate":""},{"accountId":3,"login":"user3","password":"$2y$10$WQowz7r.WNoub2A41xiJQ.HwEgMVtJyNPn9dyDP7mfrIO2yP5hpmC","email":"user3@local.com","status":1,"activeCode":"","activeExpireDate":""}]
+
+--Check List of tasklists
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:54 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=gtm99tpqf549dq89365d3gk97o; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 145
+Content-Type: application/json
+
+[{"taskListId":2,"accountId":"2","taskListName":"taskList21","status":1},{"taskListId":3,"accountId":"2","taskListName":"taskList22","status":1}]
+
+--Check List of tasks
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 20:56:54 GMT
+Server: Apache/2.4.53 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Set-Cookie: PHPSESSID=1oel5pfg82ef69a6vdl6blijnv; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 229
+Content-Type: application/json
+
+[{"taskId":2,"accountId":2,"taskListId":2,"taskName":"task221","status":1,"dueDate":"2022-04-22","note":"note221"},{"taskId":3,"accountId":2,"taskListId":2,"taskName":"task222","status":1,"dueDate":"2022-04-22","note":"note222"}]
+
